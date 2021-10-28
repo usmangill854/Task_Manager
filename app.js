@@ -10,14 +10,11 @@ require('dotenv').config()
 const port = 3000
 //middleware
 app.use(express.json()) 
-
+app.use(express.static('./public'))
 // const connectdb = async Mongoose.
 
 
-
-app.get('/',(req,res) => {
-    res.send('hello')
-})
+ 
 
 app.use('/api/v1/tasks',tasks)
   
