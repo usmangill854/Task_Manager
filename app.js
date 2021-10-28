@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 const tasks = require('./routes/tasks')
+const notFound = require('./middleware/not-found')
+const errorHandler = require('./middleware/error-handler')
 
 const connectDB = require('./db/connect')
 require('dotenv').config()
@@ -12,11 +14,11 @@ const port = 3000
 app.use(express.json()) 
 app.use(express.static('./public'))
 // const connectdb = async Mongoose.
-
-
+// app.use(notFound)
+app.use(errorHandler)
  
 
-app.use('/api/v1/tasks',tasks)
+app.use('/api/v1/tasks',tasks) 
   
 
 

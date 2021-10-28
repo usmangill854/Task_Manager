@@ -24,6 +24,8 @@ const getTask = async(req,res) => {
         const oneTask =await Task.findById(req.params.id)
         console.log(req.params.id )
 if(!oneTask){
+    // const error = Error('not Found')
+    // error.status = 404
     return res.status(404).json({msg:`no task with this id: ${req.params.id}`})
 }
 
